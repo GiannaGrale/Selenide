@@ -29,7 +29,6 @@ jobs:
 
       - name:  Install allure
       run: mvn allure:report
-        when: always
 
       - name:  Allure reports
         run: allure generate target/
