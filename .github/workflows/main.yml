@@ -1,15 +1,15 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
- name: Java CI with Maven
+name: Java CI with Maven
 
- on:
+on:
   push:
     branches: [ git_actions ]
   pull_request:
     branches: [ git_actions ]
 
- jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,10 +26,22 @@
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
 
-      - name: Allure Report action from marketplace
-      uses: simple-elf/allure-report-action@master
-          if: always()
-          id: allure-report
-          with:
-            allure_results: target/allure-results
-            allure_report: allure-report
+  Allure
+- name: Get Allure history
+  uses: actions/checkout@v2
+  if: always()
+  continue-on-error: true
+  with:
+    ref: gh-pages
+    path: gh-pages
+
+- name: Allure Report action from marketplace
+  uses: simple-elf/allure-report-action@master
+  if: always()
+  id: allure-report
+  with:
+    allure_results: target/allure-results
+    gh_pages: gh-pages
+    allure_report: allure-report
+    allure_history: allure-history
+
