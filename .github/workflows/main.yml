@@ -26,5 +26,8 @@
                       ./scripts/InstallChrome.sh
       - name: Tests
         run: mvn clean test --file pom.xml
-        brew install allure
+      - name: Install Allure
+        run: mvn allure:report
+
+
 
