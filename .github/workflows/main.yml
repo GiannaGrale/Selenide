@@ -1,15 +1,15 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI with Maven
+ name: Java CI with Maven
 
-on:
+ on:
   push:
     branches: [ git_actions ]
   pull_request:
     branches: [ git_actions ]
 
-jobs:
+ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,9 +19,15 @@ jobs:
         with:
           java-version: 8.0.302+8
           distribution: 'temurin'
-          cache: maven
+          cashe: maven
 
       - name: Install Google Chrome # Using shell script to install Google Chrome
         run: |
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
+      - name: Tests
+        run: mvn clean test --file pom.xml
+      - name: Generate allure  report
+        run: mvn allure:report
+        if: always()
+      - continue-on-error: true
