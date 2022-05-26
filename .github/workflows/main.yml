@@ -28,7 +28,5 @@
       - name: Tests
         run: mvn clean test --file pom.xml
 
-      - name: Generate allure report
-        run: allure serve
-        if: always()
-      - continue-on-error: true
+ - name: Allure report simple
+   uses: esemi/action-allure-report@v0.2.0
