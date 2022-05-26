@@ -24,10 +24,16 @@ jobs:
         run: |
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
-      - name: Build with Maven
+      - name: Tests
         run: mvn clean test --file pom.xml
+
+      - name:  Install allure
+      run: mvn allure:report
+        when: always
+
       - name:  Allure reports
-        run: allure generate output/
+        run: allure generate target/
+
       - name: Collect Allure reports in Git Actions
         uses: actions/upload-artifact@v2
         with:
