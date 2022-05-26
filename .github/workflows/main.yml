@@ -27,15 +27,10 @@ jobs:
       - name: Tests
         run: mvn clean test --file pom.xml
 
-      - name:  Install allure
-      run: mvn allure:report
-
-      - name:  Allure reports
-        run: allure generate target/
-
-      - name: Collect Allure reports in Git Actions
-        uses: actions/upload-artifact@v2
-        with:
-          name: allure-report
-          path: allure_report
-
+  - name: Get Allure history
+    uses: actions/checkout@v2
+    if: always()
+    continue-on-error: true
+    with:
+      ref: git-actions
+      path: git-actions
