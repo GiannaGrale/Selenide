@@ -28,8 +28,5 @@
       - name: Tests
         run: mvn clean test --file pom.xml
 
-      - name: Allure report simple
-        uses: esemi/action-allure-report@v0.2.0
-        with:
-          results-dir: target/allure-results
-          reports-dir: target/allure-reports
+    - name: Test Reporting
+      uses: phoenix-actions/test-reporting@v6
