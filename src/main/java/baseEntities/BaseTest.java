@@ -26,7 +26,7 @@ public class BaseTest {
         Configuration.baseUrl = ReadProperties.getInstance().getPandaURL();
         Configuration.browser = ReadProperties.getInstance().getBrowserName();
         Configuration.startMaximized = true;
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.fastSetValue = true;
         //   Configuration.assertionMode = AssertionMode.SOFT;
 
