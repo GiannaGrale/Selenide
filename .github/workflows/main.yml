@@ -28,5 +28,12 @@
       - name: Tests
         run: mvn clean test --file pom.xml
 
-    - name: Test Reporting
-      uses: phoenix-actions/test-reporting@v6
+      - name: Generate Allure Report
+        uses: afiore/action-allure-report@v0.1.0
+        if: success() || failure()
+       - name: Upload report
+        uses: actions/upload-artifact@v2.1.4
+          with:
+          name: allure-report
+            path: allure-report/
+              if: success() || failure()
