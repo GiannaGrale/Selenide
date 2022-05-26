@@ -26,11 +26,3 @@
                       ./scripts/InstallChrome.sh
       - name: Tests
         run: mvn clean test --file pom.xml
-
-  - name: Get Allure history
-    uses: actions/checkout@v2
-    if: always()
-    continue-on-error: true
-    with:
-      ref: git-actions
-      path: git-actions
