@@ -26,6 +26,7 @@
                       ./scripts/InstallChrome.sh
       - name: Tests
         run: mvn clean test --file pom.xml
+        working-directory: Selenide
        - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
