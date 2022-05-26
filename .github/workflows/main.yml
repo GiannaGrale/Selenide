@@ -29,7 +29,7 @@
         run: mvn clean test --file pom.xml
 
       - name: Generate Allure Report
-        uses: afiore/action-allure-report@v0.1.0
+        uses: QuintilianoNery/action-allure-report-V2@0.2.0
         if: always()
         id: allure-report
         with:
