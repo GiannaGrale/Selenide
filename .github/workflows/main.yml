@@ -26,7 +26,6 @@ jobs:
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
 
-  Allure
 - name: Get Allure history
   uses: actions/checkout@v2
   if: always()
