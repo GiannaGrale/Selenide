@@ -28,8 +28,8 @@
       - name: Tests
         run: mvn clean test --file pom.xml
 
-      - name: Allure report
-        uses: afiore/action-allure-report@v0.1.0
+      - name: Allure report simple
+        uses: esemi/action-allure-report@v0.2.0
         with:
           results-dir: target/allure-results
           reports-dir: target/allure-reports
