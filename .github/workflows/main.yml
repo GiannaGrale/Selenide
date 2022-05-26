@@ -26,9 +26,9 @@
           chmod +x ./scripts/InstallChrome.sh
                       ./scripts/InstallChrome.sh
       - name: Tests
-        uses: ./allure-report-action
         run: mvn clean test --file pom.xml
+
       - name: Generate allure report
-        run: mvn allure:report
+        run: allure serve
         if: always()
       - continue-on-error: true
