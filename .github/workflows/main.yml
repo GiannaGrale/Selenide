@@ -39,8 +39,8 @@
         if: always()
         id: allure-report
         with:
-           results-dir: allure-results
-           report-dir: allure-report
+           results-dir: target/allure-results
+           report-dir: target/allure-report
 
       - name: Upload report
         uses: actions/upload-artifact@v2.1.4
