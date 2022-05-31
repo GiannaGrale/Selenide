@@ -15,7 +15,6 @@
     strategy:
       matrix:
         ci_node_total: [3]
-        ci_node_index: [0, 2]
 
     steps:
       - uses: actions/checkout@v3
